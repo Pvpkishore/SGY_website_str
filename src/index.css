@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Festival Color Palette */
+    --background: 42 100% 97%;
+    --foreground: 0 0% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 15%;
+
+    /* Saffron Primary */
+    --primary: 25 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 25 100% 70%;
+
+    /* Gold Secondary */
+    --secondary: 51 100% 50%;
+    --secondary-foreground: 0 0% 15%;
+
+    /* Leaf Green Accent */
+    --accent: 120 60% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Deep Maroon */
+    --maroon: 0 100% 25%;
+    --maroon-foreground: 0 0% 100%;
+
+    --muted: 42 30% 95%;
+    --muted-foreground: 0 0% 45%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 42 20% 85%;
+    --input: 42 20% 92%;
+    --ring: 25 100% 60%;
+
+    /* Festival Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(25 100% 60%), hsl(51 100% 50%));
+    --gradient-blessing: linear-gradient(180deg, hsl(25 100% 60% / 0.1), hsl(51 100% 50% / 0.1));
+    --gradient-devotion: linear-gradient(45deg, hsl(0 100% 25%), hsl(25 100% 60%));
+
+    /* Shadows & Effects */
+    --shadow-divine: 0 20px 60px -10px hsl(25 100% 60% / 0.3);
+    --shadow-blessing: 0 0 40px hsl(51 100% 50% / 0.4);
+    --glow-diya: 0 0 30px hsl(25 100% 60% / 0.6);
+
+    /* Animation Variables */
+    --transition-divine: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --bounce-festival: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-festival;
+  }
+}
+
+@layer utilities {
+  /* Festival Animations */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-blessing {
+    animation: blessing 4s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s var(--bounce-festival) forwards;
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+
+  .animate-spin-reverse {
+    animation: spin 6s linear infinite reverse;
+  }
+
+  /* Festival Utility Classes */
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-blessing {
+    background: var(--gradient-blessing);
+  }
+
+  .gradient-devotion {
+    background: var(--gradient-devotion);
+  }
+
+  .shadow-divine {
+    box-shadow: var(--shadow-divine);
+  }
+
+  .shadow-blessing {
+    box-shadow: var(--shadow-blessing);
+  }
+
+  .glow-diya {
+    box-shadow: var(--glow-diya);
+  }
+
+  .transition-divine {
+    transition: var(--transition-divine);
+  }
+
+  .text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 20px hsl(25 100% 60% / 0.3); }
+  100% { box-shadow: 0 0 40px hsl(25 100% 60% / 0.8); }
+}
+
+@keyframes blessing {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.05) rotate(2deg); }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
